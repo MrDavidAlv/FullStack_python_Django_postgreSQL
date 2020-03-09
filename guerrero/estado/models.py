@@ -39,6 +39,7 @@ class Detallecuerpo(models.Model):
     def __str__(self):
         return '{}:{}'.format(self.partecuerpo.CuerpoNombre,self.estado.EstadoNombre )
     def save(self):
+
         self.CuerpoNombre= self.CuerpoNombre.upper()
         super(Detallecuerpo,self).save()
 class Meta:
@@ -55,6 +56,7 @@ class Demonio(models.Model):
     def __str__(self):
         return '{}'.format(self.DemonioNombre)
     def save(self):
+        
         self.DemonioNombre= self.DemonioNombre.upper()
         super(Demonio,self).save()
 class Meta:

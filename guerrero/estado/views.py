@@ -28,12 +28,7 @@ class Estadoeliminar(generic.DeleteView):
      template_name = 'delete_celda.html'
      form_class = Estadoform
      success_url=reverse_lazy("Estado:Estados")
-
-
-
 #Vistas de Partecuerpo
-
-
 class Partecuerpoview(generic.ListView):
     model = Partecuerpo
     template_name = 'listar_celda.html'
@@ -56,10 +51,7 @@ class Partecuerpoeliminar(generic.DeleteView):
      template_name = 'delete_celda.html'
      form_class = Partecuerpoform
      success_url=reverse_lazy("Partecuerpo:Partecuerpos")
-
 #Vistas de Detallecuerpo
-
-
 class Detallecuerpoview(generic.ListView):
     model = Detallecuerpo
     template_name = 'listar_celda.html'
@@ -82,10 +74,7 @@ class Detallecuerpoeliminar(generic.DeleteView):
      template_name = 'delete_celda.html'
      form_class = Detallecuerpoform
      success_url=reverse_lazy("Detallecuerpo:Detallecuerpos")
-
 #Vistas de Demonio
-
-
 class Demonioview(generic.ListView):
     model = Demonio
     template_name = 'listar_celda.html'
@@ -108,12 +97,7 @@ class Demonioeliminar(generic.DeleteView):
      template_name = 'delete_celda.html'
      form_class = Demonioform
      success_url=reverse_lazy("Demonio:Demonios")
-
-
-
 #Vistas de Batalla
-
-
 class Batallaview(generic.ListView):
     model = Batalla
     template_name = 'listar_celda.html'

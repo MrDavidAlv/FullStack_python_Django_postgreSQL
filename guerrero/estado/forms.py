@@ -37,7 +37,7 @@ class Partecuerpoform(forms.ModelForm):
 
 class Detallecuerpoform(forms.ModelForm):
     class Meta:
-        model = Partecuerpo
+        model = Detallecuerpo
         fields = ['partecuerpo','estado']
         labels = {'parte del cuerpo' : 'escoja el  nombre',
                    'estado':'escoja el  nombre' }
@@ -73,7 +73,7 @@ class Demonioform(forms.ModelForm):
 
 class Batallaform(forms.ModelForm):
     class Meta:
-        model = Demonio
+        model = Batalla
         fields = ['demonio','estado']
         labels = {'Nombre del demonio' : 'escoja el demonio',
                   'estado':'escoja el estado' }
