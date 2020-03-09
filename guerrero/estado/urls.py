@@ -12,6 +12,7 @@ urlpatterns = [
     path('Partecuerpo/new', Partecuerpoinsertar.as_view(), name='Agregar'),
     path('Partecuerpo/edit/<int:pk>', Partecuerpoeditar.as_view(), name='Editar'),
     path('Partecuerpo/delete/<int:pk>', Partecuerpoeliminar.as_view(), name='Eliminar'),
+
     path('Detallecuerpo/', Detallecuerpoview.as_view(), name='Detallecuerpos'),
     path('Detallecuerpo/new', Detallecuerpoinsertar.as_view(), name='Agregar'),
     path('Detallecuerpo/edit/<int:pk>', Detallecuerpoeditar.as_view(), name='Editar'),

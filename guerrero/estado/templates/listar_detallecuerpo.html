@@ -1,0 +1,46 @@
+{% extends 'container/container.html' %}
+{% block contenido %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+
+    </div>
+</div>
+<div class="panel-body"></div>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id </th>
+            <th>Articulo</th>
+            <th>Estado</th>
+            <th>precio</th>
+
+        </tr>
+    </thead>
+    {% csrf_token %}
+    <tbody>
+        {% for item in Articulo  %}
+        <tr>
+            <td>
+                {{item.id}}
+            </td>
+            <td>
+                {{item.NombreArticulo}}
+            </td>
+            <td>
+              {{item.EstadoArticulo}}
+            </td>
+            <td>
+              {{item.PrecioArticulo}}
+            </td>
+             <td>
+                <a href="{% url 'Articulo:Editar' item.id  %}">Editar</a>
+            </td>
+            <td>
+               <a href="{% url 'Articulo:Eliminar' item.id  %}">eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+ <a href="{% url 'Articulo:Agregar' %}">Agregar</a>
+{%endblock contenido%}
