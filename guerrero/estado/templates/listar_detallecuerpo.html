@@ -10,37 +10,35 @@
     <thead>
         <tr>
             <th>Id </th>
-            <th>Articulo</th>
+            <th>parte cuerpo</th>
             <th>Estado</th>
-            <th>precio</th>
+
 
         </tr>
     </thead>
     {% csrf_token %}
     <tbody>
-        {% for item in Articulo  %}
+        {% for item in detallecuerpo  %}
         <tr>
             <td>
                 {{item.id}}
             </td>
             <td>
-                {{item.NombreArticulo}}
+                {{item.}}
             </td>
             <td>
-              {{item.EstadoArticulo}}
+              {{item.}}
             </td>
-            <td>
-              {{item.PrecioArticulo}}
-            </td>
+
              <td>
-                <a href="{% url 'Articulo:Editar' item.id  %}">Editar</a>
+                <a href="{% url 'Detallecuerpo:EditarDC' item.id  %}">Editar</a>
             </td>
             <td>
-               <a href="{% url 'Articulo:Eliminar' item.id  %}">eliminar</a>
+               <a href="{% url 'Detallecuerpo:EliminarDC' item.id  %}">eliminar</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Articulo:Agregar' %}">Agregar</a>
+ <a href="{% url 'Detallecuerpo:AgregarDC' %}">Agregar</a>
 {%endblock contenido%}

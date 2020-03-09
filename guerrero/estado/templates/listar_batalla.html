@@ -18,7 +18,7 @@
     </thead>
     {% csrf_token %}
     <tbody>
-        {% for item in Articulo  %}
+        {% for item in batalla  %}
         <tr>
             <td>
                 {{item.id}}
@@ -29,18 +29,16 @@
             <td>
               {{item.EstadoArticulo}}
             </td>
-            <td>
-              {{item.PrecioArticulo}}
-            </td>
+
              <td>
-                <a href="{% url 'Articulo:Editar' item.id  %}">Editar</a>
+                <a href="{% url 'Batalla:EditarB' item.id  %}">Editar</a>
             </td>
             <td>
-               <a href="{% url 'Articulo:Eliminar' item.id  %}">eliminar</a>
+               <a href="{% url 'Batalla:EliminarB' item.id  %}">eliminar</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Articulo:Agregar' %}">Agregar</a>
+ <a href="{% url 'Batalla:AgregarB' %}">Agregar</a>
 {%endblock contenido%}

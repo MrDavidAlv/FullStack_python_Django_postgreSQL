@@ -20,4 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Estado',include(('estado.urls','Estado'),namespace='Estado')),
     path('',include(('estado.urls','Partecuerpos'),namespace='Partecuerpo')),
+    path('Detallecuerpo',include(('estado.urls','Detallecuerpo'),namespace='Detallecuerpo')),
+    path('Batalla',include(('estado.urls','Batalla'),namespace='Batalla')),
+    path('Demonio',include(('estado.urls','Demonio'),namespace='Demonio')),
 ]

@@ -23,16 +23,19 @@
             <td>
                 {{item.id}}
             </td>
+            <td>
+                {{item.}}
+            </td>
 
              <td>
-                <a href="{% url 'Partecuerpo:Editar' item.id  %}">Editar</a>
+                <a href="{% url 'Partecuerpo:EditarP' item.id  %}">Editar</a>
             </td>
             <td>
-               <a href="{% url 'Partecuerpo:Eliminar' item.id  %}">eliminar</a>
+               <a href="{% url 'Partecuerpo:EliminarP' item.id  %}">eliminar</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Partecuerpo:Agregar' %}">Agregar</a>
+ <a href="{% url 'Partecuerpo:AgregarP' %}">Agregar</a>
 {%endblock contenido%}
