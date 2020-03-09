@@ -2,13 +2,14 @@
 from django.urls import path, include
 from estado.views import Estadoview,Estadoinsertar,Estadoeditar,Estadoeliminar,Partecuerpoview,Partecuerpoinsertar,Partecuerpoeditar,Partecuerpoeliminar,Detallecuerpoview,Detallecuerpoinsertar,Detallecuerpoeditar,Detallecuerpoeliminar,Demonioview,Demonioinsertar,Demonioeditar,Demonioeliminar,Batallaview,Batallainsertar,Batallaeditar,Batallaeliminar
 
+
 urlpatterns = [
-    path('', Estadoview.as_view(), name='Estados'),
+    path('Estado', Estadoview.as_view(), name='Estados'),
     path('Estado/new', Estadoinsertar.as_view(), name='Agregar'),
     path('Estado/edit/<int:pk>', Estadoeditar.as_view(), name='Editar'),
     path('Estado/delete/<int:pk>', Estadoeliminar.as_view(), name='Eliminar'),
 
-    path('Partecuerpo/', Partecuerpoview.as_view(), name='Partecuerpos'),
+    path('', Partecuerpoview.as_view(), name='Partecuerpos'),
     path('Partecuerpo/new', Partecuerpoinsertar.as_view(), name='Agregar'),
     path('Partecuerpo/edit/<int:pk>', Partecuerpoeditar.as_view(), name='Editar'),
     path('Partecuerpo/delete/<int:pk>', Partecuerpoeliminar.as_view(), name='Eliminar'),
