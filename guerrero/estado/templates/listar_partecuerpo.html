@@ -3,7 +3,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h1>
-          Partes del cuerpo
+          Partes del cuerpo<span class="badge badge-success"><i class="fas fa-baby fa-2x"></i></span>
         </h1>
     </div>
 </div>
@@ -13,6 +13,7 @@
         <tr>
             <th>Id </th>
             <th>Parte</th>
+            <th>acciones</th>
 
 
         </tr>
@@ -29,11 +30,17 @@
             </td>
 
              <td>
-                <a href="{% url 'Partecuerpo:EditarP' item.id  %}">Editar</a>
+               <div class=" btn-group dropright">
+                  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acciones
+                  </button>
+                  <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+                      <a  class="btn btn-outline-danger btn-block " href="{% url 'Partecuerpo:EliminarP' item.id  %}">eliminar</a>
+                      <a class="btn btn-outline-info  btn-block mt-2"href="{% url 'Partecuerpo:EditarP' item.id  %}">Editar</a>
+                  </div>
+                </div>
             </td>
-            <td>
-               <a href="{% url 'Partecuerpo:EliminarP' item.id  %}">eliminar</a>
-            </td>
+
         </tr>
         {% endfor %}
     </tbody>
