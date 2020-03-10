@@ -2,7 +2,9 @@
 {% block contenido %}
 <div class="panel panel-primary">
     <div class="panel-heading">
-
+      <h1>
+        Estados Generales
+      </h1>
     </div>
 </div>
 <div class="panel-body"></div>
@@ -36,6 +38,6 @@
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Estado:AgregarE' %}">Agregar Estado</a>
+ <a class="btn btn-outline-primary" href="{% url 'Estado:AgregarE' %}">Agregar Estado</a>
 
 {%endblock contenido%}

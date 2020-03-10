@@ -2,24 +2,25 @@
 {% block contenido %}
 <div class="panel panel-primary">
     <div class="panel-heading">
-
+      <h1>
+        Demonios<span class="badge badge-danger"><i class="fab fa-optin-monster fa-2x"></i>  </span>
+      </h1>
     </div>
 </div>
 <div class="panel-body"></div>
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover border ">
     <thead>
         <tr>
             <th>Id </th>
             <th>Demonio</th>
-
-
-
+            <th>Estado de Partes</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     {% csrf_token %}
     <tbody>
         {% for item in demonio  %}
-        <tr>
+        <tr >
             <td>
                 {{item.id}}
             </td>
@@ -32,14 +33,19 @@
 
 
              <td>
-                <a href="{% url 'Demonio:EditarD' item.id  %}">Editar</a>
-            </td>
-            <td>
-               <a href="{% url 'Demonio:EliminarD' item.id  %}">eliminar</a>
+               <div class=" btn-group  dropright">
+                  <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acciones
+                  </button>
+                  <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+                      <a  class="btn btn-outline-danger btn-block " href="{% url 'Demonio:EliminarD' item.id  %}">eliminar</a>
+                      <a class="btn btn-outline-info  btn-block mt-2" href="{% url 'Demonio:EditarD' item.id  %}">Editar</a>
+                  </div>
+                </div>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Demonio:AgregarD' %}">Agregar</a>
+ <a class="btn btn-outline-primary" href="{% url 'Demonio:AgregarD' %}">Agregar</a>
 {%endblock contenido%}

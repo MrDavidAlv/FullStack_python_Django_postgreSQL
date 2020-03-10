@@ -2,7 +2,9 @@
 {% block contenido %}
 <div class="panel panel-primary">
     <div class="panel-heading">
-
+        <h1>
+          Estados de Extremidades<span class="badge badge-success"><i class="fas fa-male fa-2x"></i></span>
+        </h1>
     </div>
 </div>
 <div class="panel-body"></div>
@@ -12,7 +14,7 @@
             <th>Id </th>
             <th>parte cuerpo</th>
             <th>Estado</th>
-
+            <th>Acciones</th>
 
         </tr>
     </thead>
@@ -30,15 +32,24 @@
               {{item.estado}}
             </td>
 
+
              <td>
-                <a href="{% url 'Detallecuerpo:EditarDC' item.id  %}">Editar</a>
+               <div class=" btn-group dropright">
+                  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acciones
+                  </button>
+                  <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+                      <a  class="btn btn-outline-danger btn-block " href="{% url 'Detallecuerpo:EliminarDC' item.id  %}">eliminar</a>
+                      <a class="btn btn-outline-info  btn-block mt-2" href="{% url 'Detallecuerpo:EditarDC' item.id  %}">Editar</a>
+                  </div>
+                </div>
+
+
             </td>
-            <td>
-               <a href="{% url 'Detallecuerpo:EliminarDC' item.id  %}">eliminar</a>
-            </td>
+
         </tr>
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Detallecuerpo:AgregarDC' %}">Agregar</a>
+ <a class="btn btn-outline-primary" href="{% url 'Detallecuerpo:AgregarDC' %}">Agregar</a>
 {%endblock contenido%}

@@ -2,7 +2,9 @@
 {% block contenido %}
 <div class="panel panel-primary">
     <div class="panel-heading">
-
+        <h1>
+          Partes del cuerpo
+        </h1>
     </div>
 </div>
 <div class="panel-body"></div>
@@ -36,5 +38,5 @@
         {% endfor %}
     </tbody>
 </table>
- <a href="{% url 'Partecuerpo:AgregarP' %}">Agregar</a>
+ <a class="btn btn-outline-primary" href="{% url 'Partecuerpo:AgregarP' %}">Agregar</a>
 {%endblock contenido%}
