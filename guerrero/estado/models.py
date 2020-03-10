@@ -37,7 +37,7 @@ class Detallecuerpo(models.Model):
     partecuerpo=models.ForeignKey(Partecuerpo, on_delete=models.CASCADE)
     estado=models.ForeignKey(Estado, on_delete=models.CASCADE)
     def __str__(self):
-        return '{}:{}'.format(self.partecuerpo.CuerpoNombre,self.estado.EstadoNombre )
+        return 'EL DEMONIO {} ESTA PARTE DEL CUERPO : {}  '.format(self.estado.EstadoNombre ,self.partecuerpo.CuerpoNombre )
     def save(self):
         super(Detallecuerpo,self).save()
 class Meta:
@@ -54,7 +54,6 @@ class Demonio(models.Model):
     def __str__(self):
         return '{}'.format(self.DemonioNombre)
     def save(self):
-
         self.DemonioNombre= self.DemonioNombre.upper()
         super(Demonio,self).save()
 class Meta:
