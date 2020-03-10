@@ -22,7 +22,7 @@ class Partecuerpo(models.Model):
     CuerpoNombre = models.CharField(
         max_length = 50,
     )
-    def __str__(selft):
+    def __str__(self):
         return '{}'.format(self.CuerpoNombre)
     def save(self):
         self.CuerpoNombre= self.CuerpoNombre.upper()
@@ -39,8 +39,6 @@ class Detallecuerpo(models.Model):
     def __str__(self):
         return '{}:{}'.format(self.partecuerpo.CuerpoNombre,self.estado.EstadoNombre )
     def save(self):
-
-        self.CuerpoNombre= self.CuerpoNombre.upper()
         super(Detallecuerpo,self).save()
 class Meta:
     verbose_name_plural='Detalles del cuerpo'
@@ -56,7 +54,7 @@ class Demonio(models.Model):
     def __str__(self):
         return '{}'.format(self.DemonioNombre)
     def save(self):
-        
+
         self.DemonioNombre= self.DemonioNombre.upper()
         super(Demonio,self).save()
 class Meta:
