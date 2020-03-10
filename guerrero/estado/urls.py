@@ -9,7 +9,7 @@ urlpatterns = [
     path('Estado/edit/<int:pk>', Estadoeditar.as_view(), name='EditarE'),
     path('Estado/delete/<int:pk>', Estadoeliminar.as_view(), name='EliminarE'),
 
-    path('', Partecuerpoview.as_view(), name='Partecuerpos'),
+    path('Partecuerpo', Partecuerpoview.as_view(), name='Partecuerpos'),
     path('Partecuerpo/new', Partecuerpoinsertar.as_view(), name='AgregarP'),
     path('Partecuerpo/edit/<int:pk>', Partecuerpoeditar.as_view(), name='EditarP'),
     path('Partecuerpo/delete/<int:pk>', Partecuerpoeliminar.as_view(), name='EliminarP'),
@@ -19,7 +19,7 @@ urlpatterns = [
     path('Detallecuerpo/edit/<int:pk>', Detallecuerpoeditar.as_view(), name='EditarDC'),
     path('Detallecuerpo/delete/<int:pk>', Detallecuerpoeliminar.as_view(), name='EliminarDC'),
 
-    path('Batalla', Batallaview.as_view(), name='Batallas'),
+    path('', Batallaview.as_view(), name='Batallas'),
     path('Batalla/new', Batallainsertar.as_view(), name='AgregarB'),
     path('Batalla/edit/<int:pk>', Batallaeditar.as_view(), name='EditarB'),
     path('Batalla/delete/<int:pk>', Batallaeliminar.as_view(), name='EliminarB'),
