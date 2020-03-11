@@ -1,5 +1,6 @@
 
 from django.urls import path, include
+from estado.views import demonio_print
 from estado.views import Estadoview,Estadoinsertar,Estadoeditar,Estadoeliminar,Partecuerpoview,Partecuerpoinsertar,Partecuerpoeditar,Partecuerpoeliminar,Detallecuerpoview,Detallecuerpoinsertar,Detallecuerpoeditar,Detallecuerpoeliminar,Demonioview,Demonioinsertar,Demonioeditar,Demonioeliminar,Batallaview,Batallainsertar,Batallaeditar,Batallaeliminar
 
 
@@ -28,4 +29,6 @@ urlpatterns = [
     path('Demonio/new', Demonioinsertar.as_view(), name='AgregarD'),
     path('Demonio/edit/<int:pk>', Demonioeditar.as_view(), name='EditarD'),
     path('Demonio/delete/<int:pk>', Demonioeliminar.as_view(), name='EliminarD'),
+    path('Demonio/print',demonio_print,name='demonio_print'),
+    path('Demonio/print/<int:pk>',demonio_print,name='demonio_print_one'),
   ]

@@ -3,6 +3,7 @@ from estado.models import Estado,Partecuerpo,Detallecuerpo,Demonio,Batalla
 from django.urls import  reverse_lazy
 from estado.forms import Estadoform,Partecuerpoform,Detallecuerpoform,Demonioform,Batallaform
 from django.views import generic
+from django.http import  HttpResponse
 # Create your views here.
 
 #Vistas de Estados
@@ -120,3 +121,48 @@ class Batallaeliminar(generic.DeleteView):
      template_name = 'delete_batalla.html'
      form_class = Batallaform
      success_url=reverse_lazy("Batalla:Batallas")
+
+
+def demonio_print(self, pk=None):
+    import io
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import letter
+    from reportlab.platypus import Table
+
+    response = HttpResponse(content_type='application/pdf')
+    buff = io.BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=letter,
+                            rightMargin=40,
+                            leftMargin=40,
+                            topMargin=60,
+                            bottomMargin=18,
+                            )
+    demonios = []
+    styles = getSampleStyleSheet()
+    header = Paragraph("Listado de Demonio", styles['Heading1'])
+    demonios.append(header)
+    headings = ('Id', 'demonio', 'detalle ')
+    if not pk:
+        todosdemonio = [(p.id, p.DemonioNombre, p.detallecuerpo)
+                           for p in Demonio.objects.all().order_by('pk')]
+    else:
+        todosdemonio = [(p.id, p.DemonioNombre, p.detallecuerpo)
+                           for p in Demonio.objects.filter(id=pk)]
+
+    t = Table([headings] + todosdemonio)
+    t.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (3, -1), 1, colors.dodgerblue),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue)
+        ]
+    ))
+
+    demonios.append(t)
+    doc.build(demonios)
+    response.write(buff.getvalue())
+    buff.close()
+    return response
